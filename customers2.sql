@@ -1,4 +1,5 @@
-with order as (
+
+with orders as (
   select
   orders.customer_id as id,
   MIN(orders.created_at) as first_order_at,
@@ -12,10 +13,10 @@ select
   customers.id as customer_id,
   customers.name,
   customers.email,
-  order.first_order_at,
-  order.last_order_at,
-  order.number_of_orders as number_of_orders
+  orders.first_order_at,
+  orders.last_order_at,
+  orders.number_of_orders as number_of_orders
 FROM `analytics-engineers-club.coffee_shop.customers` AS customers 
-LEFT JOIN order ON customers.id = order.id
-ORDER BY order.first_order_at
+LEFT JOIN order2 ON customers.id = orders.id
+ORDER BY orders.first_order_at
 limit 5;
