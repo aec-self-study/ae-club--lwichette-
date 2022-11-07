@@ -1,0 +1,8 @@
+models:
+  - name: monthly_users
+    description: 'monthly users view'
+    columns:
+      - name: signup_month
+        tests:
+          - unique
+          - not_null
