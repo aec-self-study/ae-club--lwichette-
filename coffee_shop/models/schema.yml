@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: customers
+    description: "customer table"
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+  - name: monthly_users
+    description: '{{ doc("doc_customers") }}'
+    columns:
+      - name: signup_month
+        tests:
+          - unique
+          - not_null
