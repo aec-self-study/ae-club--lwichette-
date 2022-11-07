@@ -17,6 +17,6 @@ select
   orders.last_order_at,
   orders.number_of_orders as number_of_orders
 FROM `analytics-engineers-club.coffee_shop.customers` AS customers 
-LEFT JOIN order2 ON customers.id = orders.id
+LEFT JOIN orders ON customers.id = orders.id
 ORDER BY orders.first_order_at
 limit 5;
