@@ -10,6 +10,12 @@ sources:
           period: hour
     loaded_at_field: created_at
     tables:
+      - name: order_items
+        columns: 
+          - name: order_id
+            tests: 
+              - not_null
+      
       - name: customers
         freshness:
           error_after:
@@ -21,6 +27,7 @@ sources:
             tests: 
               - unique
               - not_null
+              
       - name: orders
         columns:
           - name: customer_id
