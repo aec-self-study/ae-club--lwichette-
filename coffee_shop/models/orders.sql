@@ -4,7 +4,7 @@ with orders as (
     created_at as order_date,
     customer_id,
     total
-  from {{ source ('coffe_shop', 'orders') }}
+  from {{ source ('coffee_shop', 'orders') }}
 )
 
 select * from orders
