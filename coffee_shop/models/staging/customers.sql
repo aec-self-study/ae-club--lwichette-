@@ -7,12 +7,9 @@ with orders as (
   count(orders.id) as number_of_orders
   FROM {{ source ('coffee_shop', 'orders')}} AS orders
   group by 1
-)
+),
 
-{{ config ( 
-    materialized = 'table'
-) }}
-
+renamed as (
 select
   customers.id as customer_id,
   customers.name,
@@ -22,4 +19,10 @@ select
   orders.number_of_orders as number_of_orders
 FROM {{ source('coffee_shop', 'customers') }} AS customers 
 LEFT JOIN orders ON customers.id = orders.id
-ORDER BY orders.first_order_at
+ORDER BY orders.first_order_at)
+
+{{ config ( 
+    materialized = 'table'
+) }}
+
+select * from renamed 
