@@ -1,5 +1,8 @@
-select 
-  order_id,
-  count(id) as number_of_items 
+with order_items as (
+  select 
+    id as order_items_id,
+    order_id,
+    product_id,
 from {{ source ('coffee_shop' ,'order_items') }}
-group by 1
+)
+select * from order_items 
