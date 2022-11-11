@@ -1,6 +1,6 @@
 with running_orders as (
 select * 
-from {{ ref ('orders') }} as orders
+from {{ ref ('stg_coffee_shop__orders') }} as orders
 left join {{ ref ('running_order_number') }} as running_order_number
 on running_order_number.order_id = orders.order_id
 ) ,

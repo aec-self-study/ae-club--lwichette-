@@ -6,5 +6,5 @@ select
     order by order_at
     )
     as running_order_number
-from `aec-students.dbt_leonwichette.orders`
+from {{ ref( 'stg_coffee_shop__orders' )}}
 order by order_at asc
