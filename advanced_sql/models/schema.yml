@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: LTV_curves
+    description: "ltv data"
+    columns:
+      - name: number_of_Weeks
+        tests:
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
