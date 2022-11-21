@@ -6,5 +6,21 @@ models:
     columns:
       - name: customer_id
         tests:
-          - unique
           - not_null
+  - name: stg_coffee_shop__product_prices
+    description: "product prices table"
+    tests: 
+      - dbt_utils.mutually_exclusive_ranges:
+          lower_bound_column: created_at
+          upper_bound_column: ended_at
+          partition_by: product_id
+          zero_length_range_allowed: ttrue
+    columns:
+      - name: created_at
+      - name: ended_at
+  - name: stg_coffee_shop__orders
+    columns: 
+      - name: total
+        tests: 
+          - is_positive
+        
