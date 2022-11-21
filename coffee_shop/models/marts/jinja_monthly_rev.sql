@@ -1,6 +1,5 @@
 {% set cat = ["coffee beans", "merch", "brewing supplies"] %}
 
-
 with orders as (
 
     select
