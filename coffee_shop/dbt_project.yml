@@ -32,3 +32,20 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+#configuration of fivetran github package
+
+vars:
+  github_source:
+    github_database: analytics-engineers-club
+    github_schema: github 
+  github__using_repo_team: false # by default this is assumed to be true
+
+#granting access
+# models:
+#      - on-run-end:
+#           export:
+#             +grants:
+#                 "ROLES/bigquery.dataViewer`
+#                  ON SCHEMA dbt_leonwichette
+#                 TO "<user:claire@analyticsengineers.club>"
+       
