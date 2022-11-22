@@ -14,7 +14,7 @@ models:
           lower_bound_column: created_at
           upper_bound_column: ended_at
           partition_by: product_id
-          zero_length_range_allowed: ttrue
+          zero_length_range_allowed: true
     columns:
       - name: created_at
       - name: ended_at
@@ -22,5 +22,9 @@ models:
     columns: 
       - name: total
         tests: 
-          - is_positive
+          - is_positive:
+              config:
+                severity: warn
+                warn_if: ">2"
+                error_if: ">5"
         
