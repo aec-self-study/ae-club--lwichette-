@@ -10,7 +10,7 @@
 select
     *
  
--- maybe we should be using a source here 😉
+
  from {{ source ('advanced_dbt_examples', 'favorite_ice_cream_flavors' )}}
  
 {% endsnapshot %}
