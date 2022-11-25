@@ -37,7 +37,7 @@ select
   ROW_NUMBER() OVER (
             PARTITION BY 
                 date_day, 
-                favorite_ice_cream_flavor, 
+                favorite_ice_cream_flavor,  
                 number_of_votes
             ORDER BY 
                 date_day, 
