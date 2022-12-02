@@ -7,14 +7,19 @@ def aec_subtract(ints_to_sub):
     arg_1 = ints_to_sub[0]
     args_rest = ints_to_sub[1:]
     our_sub = arg_1 - sum(args_rest)
+    if our_sub < 0:
+        our_sub = 0
     return our_sub
 
 
 def aec_division(args_to_divide):
-    try:
-        return args_to_divide[0]/args_to_divide[1]
-    except:
-         raise ValueError('the division cant be done')
+    if len(args_to_divide) != 2:
+        raise ValueError('expected two arguments')
+    else:
+        try:
+            return args_to_divide[0]/args_to_divide[1]
+        except:
+            raise ValueError('the division cant be done')
 
 
 parser = argparse.ArgumentParser(

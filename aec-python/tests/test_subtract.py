@@ -6,6 +6,10 @@ class TestSubtract(unittest.TestCase):
         arg_ints = [20, 5]
         sub_result = aec_subtract(arg_ints)
         self.assertEqual(sub_result, 15)
-
+        
+    def test_cant_go_below_zero(self):
+        arg_ints = [5, 20]
+        sub_result = aec_subtract(arg_ints)
+        self.assertEqual(sub_result, 0)
 if __name__=="__main__":
     unittest.main()
